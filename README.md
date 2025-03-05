@@ -1,3 +1,66 @@
+## Frontend
+
+#### <bold><font color="red">Important this project is still under development and my work differently than expected!!</font></bold>
+
+### About
+
+Frontend is an application made with react and nodejs. It is a simple webservice which you can run local, in the cloud or on server with a internet connection.
+
+The purpose is to enable test-driven development and testing within a local environment running on docker. There is  a production node which can also be run on docker for selfhosting or on a internet-faced server or on a cloud service of your choice. Together you should have a complete CI/CD environment when deploying all the docker containers.
+
+The docker images are build based on the sourcecode available on github : [github frontend](https://github.com/Revention/docker_react)
+
+The docker images are available on dockerhub : [dockerhub frontend](https://hub.docker.com/repository/docker/revention/frontend/general)
+
+### Runnng the container
+
+#### Production
+This docker image is optimized for running in a production environment and can be pulled from dockerhub by evoking the pull and/or run command. It is assumed you have docker installed on your system.
+
+```docker pull revention/frontend:latest```
+
+
+```docker run -p 8080:80 revention/frontend:latest```
+
+```url: localhost:8080```
+
+#### Test (version 0.3+)
+
+The sourcecode is available on 
+[github](https://github.com/Revention/docker_react.git)
+
+<bold>Note: This version can differ from production!</bold>
+
+1) Clone the git repository
+```git clone https://github.com/Revention/docker_react.git```
+[github](https://github.com/Revention/docker_react.git)
+3) Build and start the development test environment
+```docker compose up```
+4) In another terminal window
+```docker exec -it frontend-test-1 sh```
+5) Open a browser
+[Test-environment](http://localhost:3000)
+
+#### Alternative
+
+```docker run -it revention/frontend:test-latest npm run test```
+
+
+#### Version 2.0 or prior
+```bash
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app --rm --name dev --hostname develop  revention/frontend
+```
+
+#### Docker-compose
+```bash
+docker compose up
+```
+
+
+### URL
+http://localhost:3000/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
